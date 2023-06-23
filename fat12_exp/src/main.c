@@ -49,7 +49,7 @@ int main(int argc, char **argv) {
     }
      printf("\033[32m[✔️] \033[0mRoot directory read successfully \033[36m:)\n");
 
-    DirectoryEntry* fileEntry = findfile(argv[2],);
+    DirectoryEntry* fileEntry = findFile(argv[2], g_bootSector, g_RootDirectory);
     if(!fileEntry) {
         fprintf(stderr, "\\033[31m[X] \033[41mError 0005\033[0m: Could not find file %s \033[35m:(\n", argv[2]);
         free(g_fat);
