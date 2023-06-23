@@ -59,5 +59,6 @@ bool readBootSector(FILE *disk, BootSector bootsector);
 bool readSector(FILE* disk, uint32_t lba, uint32_t Count, void* BufferOut, BootSector bootsector);
 bool readfat(FILE* disk, BootSector bootsector, uint8_t* fat);
 bool readRootDirectory(FILE* disk, BootSector bootsector, DirectoryEntry* RootDirectory);
+DirectoryEntry *findFile(const char *name, BootSector bootsector, DirectoryEntry* RootDirectory);
 
 #endif
