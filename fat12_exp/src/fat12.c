@@ -30,7 +30,7 @@ bool readRootDirectory(FILE* disk, BootSector bootsector, DirectoryEntry* RootDi
 
 DirectoryEntry *findFile(const char *name, BootSector bootsector, DirectoryEntry* RootDirectory) {
     for(int32_t i = 0; i < bootsector.DirEntryCount; i++) {
-        if (memcmp(name, RootDirectory[i].Name, 11)
+        if (memcmp(name, RootDirectory[i].Name, 11))
             return &RootDirectory[i];
     }
     return NULL;
