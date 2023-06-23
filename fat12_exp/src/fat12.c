@@ -27,3 +27,11 @@ bool readRootDirectory(FILE* disk, BootSector bootsector, DirectoryEntry* RootDi
     RootDirectory = (DirectoryEntry*) malloc(sectors * bootsector.BytesPerSector);
     return readSector(disk, lba, sectors, RootDirectory, bootsector);
 }
+
+DirectoryEntry *readFile(const char *name, BootSector bootsector, DirectoryEntry* RootDirectory) {
+    for(int32_t i = 0; i < bootsector.DirEntryCount; i++) {
+        if (memcmp(name, RootDirectory[i].Name, 11)
+            return &RootDirectory[i];
+    }
+    return NULL;
+}
